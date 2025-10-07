@@ -1,33 +1,59 @@
-/* src/App.css */
+/* src/App.css - FINAL Litcoin DeFi Dashboard THEME */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --background-dark: #0d1117;
-  --background-card: #161b22;
-  --border-color: #30363d;
-  --glow-color-blue: #00aaff;
-  --glow-color-silver: #c0c0c0;
-  --text-primary: #c9d1d9;
-  --text-secondary: #8b949e;
-  --button-gradient: linear-gradient(90deg, #00aaff, #4da6ff);
-  --button-hover-gradient: linear-gradient(90deg, #33bbff, #66b3ff);
+  --background-dark: #121418;
+  --background-card: #1C1E24;
+  --border-color: #2D3039;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-tertiary: #6B7280;
+  --accent-blue: #3B82F6;
+  --accent-purple: #8B5CF6;
+  --accent-green: #10B981;
+  --accent-teal: #14B8A6;
+  --accent-amber: #F59E0B;
+
+  --gradient-blue: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  --gradient-green: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-green) 100%);
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Inter', sans-serif;
   background-color: var(--background-dark);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- Main Layout --- */
 .App {
-  text-align: center;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 2rem;
 }
 
 /* --- Header --- */
@@ -35,16 +61,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--glow-color-silver);
-  text-shadow: 0 0 5px var(--glow-color-silver);
 }
 
 /* --- Buttons --- */
@@ -52,206 +80,310 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
 }
 
 .btn-primary {
-  background: var(--button-gradient);
+  background: var(--gradient-blue);
   color: white;
-  font-weight: 700;
-  box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
 }
-
 .btn-primary:hover {
-  background: var(--button-hover-gradient);
-  box-shadow: 0 0 25px rgba(0, 170, 255, 0.8);
-  transform: translateY(-2px);
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
 }
-
 .btn-primary:disabled {
-  background: var(--text-secondary);
+  background: var(--text-tertiary);
   cursor: not-allowed;
   box-shadow: none;
-  transform: none;
 }
 
-.btn-secondary {
-  background: transparent;
-  border: 2px solid var(--glow-color-blue);
-  color: var(--glow-color-blue);
+.btn-claim {
+  background: var(--gradient-green);
+  color: white;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+}
+.btn-claim:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
 
-.btn-secondary:hover {
-  background: rgba(0, 170, 255, 0.1);
-}
-
-/* --- Card Styles --- */
+/* --- Card --- */
 .card {
-  background: var(--background-card);
+  background-color: var(--background-card);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1.5rem 2rem;
 }
 
-/* --- Staking Hub --- */
-.staking-hub h2 {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  margin-top: 0;
+/* --- Dashboard Metrics --- */
+.dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.staking-hub .stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--glow-color-silver);
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px var(--glow-color-silver);
+.metric-card {
+  background-color: var(--background-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
 }
-
-.form-group {
-  margin-bottom: 1.5rem;
-  text-align: left;
-}
-
-.form-group label {
+.metric-card-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.metric-card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.metric-card-footer {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+}
+.metric-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* --- Staking Card --- */
+.stake-card h2 {
+  margin-top: 0;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
-
-.input-group {
-  display: flex;
-}
-
 .input-field {
   width: 100%;
-  background: var(--background-dark);
+  background-color: var(--background-dark);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 12px;
   color: var(--text-primary);
-  font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
+  box-sizing: border-box;
+}
+.max-btn {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0 0 0 10px;
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-.input-group button {
-  margin-left: 10px;
-  border-radius: 8px;
-  background: var(--border-color);
-  color: var(--text-primary);
-}
-
-.staking-hub .actions {
+.staking-period-options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin: 1rem 0;
 }
-
-/* --- User Dashboard --- */
-.dashboard-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.summary-card {
-  background: var(--background-card);
-  border: 1px solid var(--border-color);
+.period-option {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
   border-radius: 12px;
-  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.period-option:hover {
+  border-color: var(--accent-purple);
+}
+.period-option.active {
+  border-color: var(--accent-blue);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+.period-option h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+.period-option span {
+  font-size: 0.9rem;
+  color: var(--accent-green);
+}
+.period-option p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
 }
 
-.summary-card h3 {
-  margin-top: 0;
+.estimation-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
-.summary-card .value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+/* --- Portfolio Card --- */
+.portfolio-card h2, .balance-card h2 {
+  margin-top: 0;
 }
-
-/* --- Deposits Table --- */
-.deposits-section h2 {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.deposits-table {
+.portfolio-table {
   width: 100%;
   border-collapse: collapse;
 }
-
-.deposits-table th, .deposits-table td {
-  padding: 1rem;
+.portfolio-table th, .portfolio-table td {
+  padding: 1rem 0.5rem;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
 }
-
-.deposits-table th {
-  color: var(--text-secondary);
+.portfolio-table th {
   font-size: 0.8rem;
+  color: var(--text-secondary);
   text-transform: uppercase;
 }
+.portfolio-table tr:last-child td {
+  border-bottom: none;
+}
+.status-tag {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.status-active {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+}
+.status-matured {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--accent-amber);
+}
 
-.progress-bar-container {
-  width: 100%;
-  height: 8px;
+/* --- Sidebar Cards --- */
+.rewards-card {
+  text-align: center;
+}
+.rewards-card h2 {
+  margin-top: 0;
+}
+.rewards-circle {
+  width: 120px;
+  height: 120px;
+  margin: 1.5rem auto;
+  border-radius: 50%;
+  background: var(--gradient-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rewards-amount {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.rewards-unit {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
+.connect-prompt {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* --- NEW STYLES for Balance & Quick Actions --- */
+.balance-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.balance-card-header h2 {
+  color: var(--accent-blue);
+}
+.balance-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.mint-section {
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+.mint-section p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+}
+.mint-input-group {
+  display: flex;
+  gap: 1rem;
+}
+.btn-mint {
+  background-color: var(--accent-purple);
+  color: white;
+  flex-shrink: 0;
+}
+.btn-mint:hover {
+  background-color: #7c4af0;
+}
+
+.quick-actions-card h2 {
+  margin-top: 0;
+}
+.quick-action-item {
+  display: block;
+  padding: 1rem;
+  background-color: var(--background-dark);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.quick-action-item:hover {
   background-color: var(--border-color);
-  border-radius: 4px;
-  overflow: hidden;
+  color: var(--text-primary);
+  transform: translateX(5px);
 }
+/* --- END NEW STYLES --- */
 
-.progress-bar {
-  height: 100%;
-  background: var(--button-gradient);
-  border-radius: 4px;
-  transition: width 0.5s ease-in-out;
-}
-
-.status-completed {
-  color: #28a745;
-  font-weight: bold;
-}
-
-/* --- Loader --- */
 .loader {
-    border: 4px solid var(--border-color);
-    border-top: 4px solid var(--glow-color-blue);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--accent-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 4rem auto;
 }
-
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* --- Admin Panel --- */
-.admin-panel {
-  border: 1px solid var(--glow-color-blue);
-  box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
-}
-
-.admin-panel h2 {
-    color: var(--glow-color-blue);
+@media (max-width: 992px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+  .dashboard-metrics {
+    grid-template-columns: 1fr;
+  }
 }
