@@ -7,10 +7,11 @@ import { AdminPage } from './pages/AdminPage';
 import { ROICalculator } from './pages/ROICalculator.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
 import  TxHistory  from './pages/TxHistory.jsx';
-const STAKING_CONTRACT_ADDRESS = "0xD0b045CFef458f557d28D0D39E4f68F695806034";
+const STAKING_CONTRACT_ADDRESS = "0x114F99D43c28e4d186842D4229EFB17E08cebB4F";
 
 // --- ABIs ---
 const STAKING_ABI = [
+	[
 	{
 		"inputs": [
 			{
@@ -64,31 +65,6 @@ const STAKING_ABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_days",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "releasePercentagePerMonth",
-				"type": "uint256"
-			}
-		],
-		"name": "setReleasePercentageV4",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -114,37 +90,6 @@ const STAKING_ABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_days",
-				"type": "uint256"
-			}
-		],
-		"name": "stakeTokens",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -162,13 +107,6 @@ const STAKING_ABI = [
 		],
 		"name": "withdraw",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "withdrawTokensV4",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -285,6 +223,49 @@ const STAKING_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_days",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "releasePercentagePerMonth",
+				"type": "uint256"
+			}
+		],
+		"name": "setReleasePercentageV4",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_days",
+				"type": "uint256"
+			}
+		],
+		"name": "stakeTokens",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "token",
 		"outputs": [
 			{
@@ -307,6 +288,19 @@ const STAKING_ABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -391,6 +385,13 @@ const STAKING_ABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "withdrawTokensV4",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -409,6 +410,7 @@ const STAKING_ABI = [
 		"stateMutability": "view",
 		"type": "function"
 	}
+]
 ];
 const ERC20_ABI = [
   "function approve(address,uint256) returns (bool)",
