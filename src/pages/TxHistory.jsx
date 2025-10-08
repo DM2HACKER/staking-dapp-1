@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
-const STAKING_ADDRESS = "0xD0b045CFef458f557d28D0D39E4f68F695806034";
+const STAKING_ADDRESS = "0x27DF3213E9bC6C8F7AAf96018db66BFdDfB3Fc2D";
 const STAKING_ABI_READ = [
   "function token() view returns (address)",
   "function userDepositCounts(address) view returns (uint256)",

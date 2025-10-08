@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
-const STAKING_ADDR = "0x114F99D43c28e4d186842D4229EFB17E08cebB4F";
+const STAKING_ADDR = "0x27DF3213E9bC6C8F7AAf96018db66BFdDfB3Fc2D";
 const STAKING_ABI_ADMIN = [
   "function token() view returns (address)",
   "function setReleasePercentageV4(uint256 days_, uint256 tenthPercent) external",

@@ -7,11 +7,10 @@ import { AdminPage } from './pages/AdminPage';
 import { ROICalculator } from './pages/ROICalculator.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
 import  TxHistory  from './pages/TxHistory.jsx';
-const STAKING_CONTRACT_ADDRESS = "0x114F99D43c28e4d186842D4229EFB17E08cebB4F";
+const STAKING_CONTRACT_ADDRESS = "0x27DF3213E9bC6C8F7AAf96018db66BFdDfB3Fc2D";
 
 // --- ABIs ---
 const STAKING_ABI = [
-	[
 	{
 		"inputs": [
 			{
@@ -249,6 +248,19 @@ const STAKING_ABI = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "_t",
+				"type": "address"
+			}
+		],
+		"name": "settokenAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "tokenAmount",
 				"type": "uint256"
@@ -410,7 +422,6 @@ const STAKING_ABI = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
 ];
 const ERC20_ABI = [
   "function approve(address,uint256) returns (bool)",
